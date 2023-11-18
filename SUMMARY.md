@@ -2,13 +2,14 @@
 
 * [👨💻 Welcome! Himanshu](README.md)
 
-## About us
+## Linux
 
-* [🚀 Vision, Mission & Focus](about-us/vision-mission-and-focus/README.md)
-  * [Vision](about-us/vision-mission-and-focus/vision.md)
-  * [Mission](about-us/vision-mission-and-focus/mission.md)
-  * [Focus](about-us/vision-mission-and-focus/focus.md)
-* [💖 Values](about-us/values.md)
+* [🚀 Tools](linux/tools/README.md)
+  * [Vision](linux/tools/vision.md)
+  * [Mission](linux/tools/mission.md)
+  * [Focus](linux/tools/focus.md)
+* [💖 Other Stuffs](linux/others/README.md)
+  * [Create a swap file in linux](linux/others/create-a-swap-file-in-linux.md)
 
 ## Team
 
