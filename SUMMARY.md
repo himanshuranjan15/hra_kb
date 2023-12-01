@@ -10,6 +10,7 @@
   * [Focus](linux/tools/focus.md)
 * [💖 Other Stuffs](linux/others/README.md)
   * [Create a swap file in linux](linux/others/create-a-swap-file-in-linux.md)
+* [GNU Parallel](linux/gnu-parallel.md)
 
 ## Team
 
