@@ -2,12 +2,48 @@
 
 Installing apache2 on ubuntu 2Installing from source
 
-| [Download](https://httpd.apache.org/docs/2.4/install.html#download)   | Download the latest release from [http://httpd.apache.org/download.cgi](http://httpd.apache.org/download.cgi#apache24)                                                                                         |
-| --------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Extract](https://httpd.apache.org/docs/2.4/install.html#extract)     | <p><code>$ gzip -d httpd-</code><em><code>NN</code></em><code>.tar.gz</code><br><code>$ tar xvf httpd-</code><em><code>NN</code></em><code>.tar</code><br><code>$ cd httpd-</code><em><code>NN</code></em></p> |
-| [Configure](https://httpd.apache.org/docs/2.4/install.html#configure) | `$ ./configure --prefix=`_`PREFIX`_                                                                                                                                                                            |
-| [Compile](https://httpd.apache.org/docs/2.4/install.html#compile)     | `$ make`                                                                                                                                                                                                       |
-| [Install](https://httpd.apache.org/docs/2.4/install.html#install)     | `$ make install`                                                                                                                                                                                               |
-| [Customize](https://httpd.apache.org/docs/2.4/install.html#customize) | `$ vi`` `_`PREFIX`_`/conf/httpd.conf`                                                                                                                                                                          |
-| [Test](https://httpd.apache.org/docs/2.4/install.html#test)           | <p></p><p><code>$ </code><em><code>PREFIX</code></em><code>/bin/apachectl -k start</code></p>                                                                                                                  |
+```
+Installing from source
+Download	Download the latest release from http://httpd.apache.org/download.cgi
+Extract	$ gzip -d httpd-NN.tar.gz
+$ tar xvf httpd-NN.tar
+$ cd httpd-NN
+Configure	$ ./configure --prefix=PREFIX
+Compile	$ make
+Install	$ make install
+Customize	$ vi PREFIX/conf/httpd.conf
+Test	$ PREFIX/bin/apachectl -k start
+```
 
+Sometime during make you might face an error [configure: error: APR not found](https://stackoverflow.com/questions/13967114/configure-error-apr-not-found-please-read-the-documentation). Simple solution is to wget **aprXX** and **apr-utilXX** from [http://apr.apache.org/download.cgi](http://apr.apache.org/download.cgi) and extract it to _srclib_ and rename it to **apr** and **apr-util** respectively.
+
+aftre this edit _conf/httpd.conf_ and add&#x20;
+
+```
+ServerName localhost
+
+<Directory />
+    Options FollowSymLinks
+    AllowOverride All
+    Order deny,allow
+    Allow from all
+</Directory>
+```
+
+apache2 server will be setup on localhost:80.
+
+
+
+Now , how to set up an alias to a file/folder. Add below lines in same same conf file
+
+```
+Alias /webfiles "/scratch/hra/apache2/webfiles"
+<Directory "/scratch/hra/apache2/webfiles">
+    Options Indexes FollowSymLinks
+    AllowOverride None
+    Require all granted
+</Directory>
+
+```
+
+With this you can access a file placed in _/webfiles_ folder using _localhost:80/webfiles/test.txt_
