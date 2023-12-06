@@ -1,6 +1,6 @@
 # Install apache2 in ubuntu
 
-Installing apache2 on ubuntu 2Installing from source
+Installing apache2 on ubuntu Installing from source
 
 ```
 Installing from source
